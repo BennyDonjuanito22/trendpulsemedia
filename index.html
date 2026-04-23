@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrendPulse Media — Micro-Habits, Viral Content & Trend Intelligence</title>
+  <meta name="description" content="TrendPulse Media delivers daily fitness micro-habits, viral wellness content, and professional tools for content creators who want to spot trends before they peak. Build healthier habits, grow faster online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://gumroad.com/js/gumroad.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0a0f;
+      --bg-card:   #111118;
+      --bg-card2:  #18181f;
+      --border:    #2a2a38;
+      --gold:      #eab308;
+      --gold-dark: #ca8a04;
+      --gold-glow: rgba(234,179,8,0.18);
+      --text:      #f0f0f5;
+      --muted:     #9090aa;
+      --green:     #22c55e;
+      --radius:    14px;
+      --radius-lg: 22px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,15,0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      gap: 1rem;
+    }
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--gold);
+      color: #0a0a0f;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+    }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(234,179,8,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(234,179,8,0.12);
+      border: 1px solid rgba(234,179,8,0.35);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 99px;
+      margin-bottom: 1.6rem;
+    }
+    .hero-badge::before { content: '⚡'; }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.4rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 .accent { color: var(--gold); }
+    .hero p.sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 2.4rem;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: #0a0a0f;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(234,179,8,0.25);
+    }
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(234,179,8,0.35);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      background: var(--gold-glow);
+    }
+
+    /* ── SOCIAL PROOF BAR ────────────────────────────── */
+    .proof-bar {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 1.5rem;
+    }
+    .proof-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .proof-stat {
+      text-align: center;
+    }
+    .proof-stat .num {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      display: block;
+      letter-spacing: -0.02em;
+    }
+    .proof-stat .label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .proof-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--border);
+    }
+    @media (max-width: 560px) { .proof-divider { display: none; } }
+
+    /* ── SECTIONS ────────────────────────────────────── */
+    section { padding: 5rem 1.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* ── PILLARS ─────────────────────────────────────── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .pillar-card:hover {
+      border-color: rgba(234,179,8,0.4);
+      transform: translateY(-3px);
+    }
+    .pillar-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .pillar-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .pillar-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── PRODUCTS ────────────────────────────────────── */
+    #products { background: var(--bg-card2); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .product-card:hover {
+      border-color: rgba(234,179,8,0.45);
+      box-shadow: 0 8px 40px rgba(234,179,8,0.08);
+      transform: translateY(-4px);
+    }
+    .product-card:hover::before { opacity: 1; }
+    .product-card.featured {
+      border-color: rgba(234,179,8,0.5);
+      background: linear-gradient(135deg, #14141c 0%, #1a1a24 100%);
+      box-shadow: 0 0 0 1px rgba(234,179,8,0.2), 0 8px 40px rgba(234,179,8,0.1);
+    }
+    .product-card.featured::before { opacity: 1; }
+
+    .product-badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+    }
+    .badge-new {
+      background: rgba(234,179,8,0.15);
+      color: var(--gold);
+      border: 1px solid rgba(234,179,8,0.3);
+    }
+    .badge-popular {
+      background: rgba(34,197,94,0.12);
+      color: var(--green);
+      border: 1px solid rgba(34,197,94,0.25);
+    }
+    .badge-best {
+      background: rgba(234,179,8,0.22);
+      color: var(--gold);
+      border: 1px solid rgba(234,179,8,0.45);
+    }
+
+    .product-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .product-card .desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .product-includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .product-includes li {
+      font-size: 0.84rem;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .product-includes li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05em;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+    }
+    .product-price span {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Gumroad button override */
+    a.gumroad-button {
+      display: inline-block;
+      background: var(--gold) !important;
+      color: #0a0a0f !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 0.88rem !important;
+      font-weight: 700 !important;
+      padding: 0.6rem 1.25rem !important;
+      border-radius: 8px !important;
+      text-decoration: none !important;
+      border: none !important;
+      cursor: pointer !important;
+      transition: background 0.2s, transform 0.15s !important;
+      white-space: nowrap;
+    }
+    a.gumroad-button:hover {
+      background: var(--gold-dark) !important;
+      transform: translateY(-1px) !important;
+    }
+    .product-card.featured a.gumroad-button {
+      box-shadow: 0 4px 20px rgba(234,179,8,0.3) !important;
+    }
+
+    /* ── TESTIMONIALS ────────────────────────────────── */
+    #testimonials { background: var(--bg); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .testi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+    }
+    .testi-stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.85rem;
+    }
+    .testi-text {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 1.2rem;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .testi-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #ca8a04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: #0a0a0f;
+      flex-shrink: 0;
+    }
+    .testi-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .testi-role {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ── FAQ ─────────────────────────────────────────── */
+    #faq { background: var(--bg-card2); }
+    .faq-list {
+      max-width: 720px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    details {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    details[open] { border-color: rgba(234,179,8,0.4); }
+    summary {
+      padding: 1.25rem 1.5rem;
+      font-weight: 700;
+      font-size: 0.97rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      user-select: none;
+      gap: 1rem;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      font-weight: 700;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after {
+      content: '−';
+    }
+    .faq-answer {
+      padding: 0 1.5rem 1.25rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* ── FINAL CTA ───────────────────────────────────── */
+    .cta-section {
+      background: var(--bg);
+      padding: 5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(234,179,8,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-box {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .cta-box h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .cta-box p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.75rem;
+    }
+    .footer-brand .logo {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand .logo span { color: var(--gold); }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      max-width: 280px;
+      line-height: 1.6;
+    }
+    .footer-links h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .footer-links a {
+      font-size: 0.88rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .footer-bottom a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .footer-bottom a:hover { color: var(--text); }
+    .footer-disclaimer {
+      font-size: 0.75rem;
+      color: #666;
+      margin-top: 0.75rem;
+      line-height: 1.5;
+    }
+
+    /* ── RESPONSIVE TWEAKS ───────────────────────────── */
+    @media (max-width: 600px) {
+      section { padding: 3.5rem 1.25rem; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+      .products-grid { grid-template-columns: 1fr; }
+      .product-footer { flex-direction: column; align-items: stretch; }
+      a.gumroad-button { text-align: center !important; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ───────────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">Trend<span>Pulse</span> Media</a>
+      <ul class="nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#products" class="nav-cta">Browse Products</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-badge">Fitness &amp; Trend Intelligence</div>
+    <h1>One micro-habit per day.<br><span class="accent">Your health transforms</span><br>in 30 days.</h1>
+    <p class="sub">
+      TrendPulse Media creates daily wellness content for busy professionals
+      and builds tools for creators who want to spot viral trends before they peak.
+      Science-backed. Zero fluff. Results you can measure.
+    </p>
+    <div class="hero-ctas">
+      <a href="#products" class="btn-primary">See All Products</a>
+      <a href="#faq" class="btn-secondary">Learn More</a>
+    </div>
+  </section>
+
+  <!-- ── SOCIAL PROOF BAR ───────────────────────────── -->
+  <div class="proof-bar">
+    <div class="proof-bar-inner">
+      <div class="proof-stat">
+        <span class="num">47K+</span>
+        <span class="label">Followers Across Platforms</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <span class="num">3–5×</span>
+        <span class="label">Daily Micro-Habit Videos</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <span class="num">30 Days</span>
+        <span class="label">Average Visible Results</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <span class="num">95%+</span>
+        <span class="label">Gross Margin (Digital)</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <span class="num">$0</span>
+        <span class="label">Cost to Start a Habit</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CONTENT PILLARS ────────────────────────────── -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">What We Cover</p>
+      <h2 class="section-title">Micro-habits that fit in your schedule.<br>Trend intelligence that fits your content.</h2>
+      <p class="section-sub">Every piece of content and every product we create is built around one principle: small, consistent actions compound into extraordinary results.</p>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <span class="pillar-icon">⚡</span>
+          <h3>60-Second Workouts</h3>
+          <p>Desk-friendly, equipment-free movements you can do anywhere. No gym required. No excuses needed.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon">🧠</span>
+          <h3>Habit Stacking Science</h3>
+          <p>Backed by behavioral research. Learn how to attach new habits to existing routines so they actually stick.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon">📈</span>
+          <h3>Trend Intelligence</h3>
+          <p>We track viral fitness and wellness topics across TikTok, Reddit, YouTube, and Google before they peak — and we teach you how to do the same.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon">🎬</span>
+          <h3>Creator Tools</h3>
+          <p>Scripts, hooks, content calendars, and hashtag research for wellness content creators who want to grow their audience faster.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon">🍎</span>
+          <h3>Myth vs. Science</h3>
+          <p>We cut through fitness influencer noise with content that cites real research. No broscience. No fad diets. Just what actually works.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon">💼</span>
+          <h3>Desk Worker Fixes</h3>
+          <p>Mobility drills, posture corrections, and mental reset routines specifically for people who sit 8+ hours a day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUCTS ───────────────────────────────────── -->
+  <section id="products">
+    <div class="section-inner">
+      <p class="section-label">Digital Products</p>
+      <h2 class="section-title">Everything you need to transform<br>your health and your content.</h2>
+      <p class="section-sub">Instant delivery. 100% digital. No subscriptions unless you want one. Start with what fits your budget and upgrade when you're ready.</p>
+
+      <div class="products-grid">
+
+        <!-- PRODUCT 1 -->
+        <div class="product-card">
+          <div class="product-badges">
+            <span class="badge badge-popular">Most Sold</span>
+          </div>
+          <h3>30-Day Micro-Habit Tracker PDF</h3>
+          <p class="desc">A printable and fillable habit tracker built for busy professionals. One habit per day, streak visualization, and a science-backed habit stacking guide to make every change permanent.</p>
+          <ul class="product-includes">
+            <li>30-day printable + fillable PDF tracker</li>
+            <li>Streak visualization dashboard</li>
+            <li>Habit stacking guide (behavioral science)</li>
+            <li>Morning routine starter template</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">$9 <span>one-time</span></div>
+            <a class="gumroad-button" href="https://trendpulsemedia.gumroad.com/l/microhabit-tracker" data-gumroad-overlay-checkout="true">Buy Now — $9</a>
+          </div>
+        </div>
+
+        <!-- PRODUCT 2 -->
+        <div class="product-card">
+          <h3>12-Week Micro-Workout Plan — Desk Worker Edition</h3>
+          <p class="desc">A complete 12-week workout system for people who sit all day. Every session is 10 minutes or less. Zero equipment. Do it at your desk, at home, or anywhere.</p>
+          <ul class="product-includes">
+            <li>84 daily workout sessions (10 min or less)</li>
+            <li>Mobility &amp; posture correction sequences</li>
+            <li>Progress tracking sheets</li>
+            <li>Quick-start guide for desk workers</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">$17 <span>one-time</span></div>
+            <a class="gumroad-button" href="https://trendpulsemedia.gumroad.com/l/microworkout-plan" data-gumroad-overlay-checkout="true">Buy Now — $17</a>
+          </div>
+        </div>
+
+        <!-- PRODUCT 3 -->
+        <div class="product-card">
+          <h3>Complete Transformation Guide</h3>
+          <p class="desc">Habits + workouts + meal prep — all combined into one cohesive 30-day transformation framework. The full TrendPulse wellness system in a single download.</p>
+          <ul class="product-includes">
+            <li>30-day habit tracker (full PDF)</li>
+            <li>12-week micro-workout plan</li>
+            <li>Simplified meal prep guide</li>
+            <li>Behavioral science breakdown on habit compounding</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">$27 <span>one-time</span></div>
+            <a class="gumroad-button" href="https://trendpulsemedia.gumroad.com/l/transformation-guide" data-gumroad-overlay-checkout="true">Buy Now — $27</a>
+          </div>
+        </div>
+
+        <!-- PRODUCT 4 — NEW -->
+        <!-- NEW PRODUCT - needs Gumroad listing -->
+        <div class="product-card">
+          <div class="product-badges">
+            <span class="badge badge-new">New</span>
+          </div>
+          <h3>Viral Content Creator Starter Kit — Fitness &amp; Wellness Niche</h3>
+          <p class="desc">Everything you need to launch a faceless fitness content channel. Proven hooks, a 30-day calendar, platform-specific captions, and an affiliate partner list with 15 live creator programs.</p>
+          <ul class="product-includes">
+            <li>50 proven short-form video hooks</li>
+            <li>30-day content calendar (ready to post)</li>
+            <li>Platform-specific caption templates</li>
+            <li>200+ validated fitness hashtags</li>
+            <li>15 fitness affiliate programs with payout rates</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">$47 <span>one-time</span></div>
+            <a class="gumroad-button" href="https://trendpulsemedia.gumroad.com/l/content-creator-starter-kit" data-gumroad-overlay-checkout="true">Buy Now — $47</a>
+          </div>
+        </div>
+
+        <!-- PRODUCT 5 — NEW -->
+        <!-- NEW PRODUCT - needs Gumroad listing -->
+        <div class="product-card">
+          <div class="product-badges">
+            <span class="badge badge-new">New</span>
+          </div>
+          <h3>Trend Intelligence Playbook</h3>
+          <p class="desc">The internal TrendPulse methodology for spotting viral fitness and wellness topics before they peak. Multi-platform scanning, virality scoring, content timing strategy, and monetization windows — all in one playbook.</p>
+          <ul class="product-includes">
+            <li>Multi-platform trend scanning framework (TikTok, Reddit, YouTube, Google)</li>
+            <li>Virality scoring matrix with templates</li>
+            <li>Content timing &amp; publishing windows guide</li>
+            <li>Monetization window playbook per trend type</li>
+            <li>Internal TrendPulse workflow (step-by-step)</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">$97 <span>one-time</span></div>
+            <a class="gumroad-button" href="https://trendpulsemedia.gumroad.com/l/trend-intelligence-playbook" data-gumroad-overlay-checkout="true">Buy Now — $97</a>
+          </div>
+        </div>
+
+        <!-- PRODUCT 6 — NEW PREMIUM -->
+        <!-- NEW PRODUCT - needs Gumroad listing -->
+        <div class="product-card featured">
+          <div class="product-badges">
+            <span class="badge badge-new">New</span>
+            <span class="badge badge-best">Best Value</span>
+          </div>
+          <h3>TrendPulse Pro Bundle — All Products + Monthly Trend Reports</h3>
+          <p class="desc">The complete TrendPulse ecosystem. Every core product, the Trend Intelligence Playbook, six months of monthly trend report drops delivered by email, and private community access with direct Q&amp;A. This is the definitive package for serious content creators and wellness entrepreneurs.</p>
+          <ul class="product-includes">
+            <li>30-Day Micro-Habit Tracker PDF</li>
+            <li>12-Week Micro-Workout Plan</li>
+            <li>Complete Transformation Guide</li>
+            <li>Viral Content Creator Starter Kit</li>
+            <li>Trend Intelligence Playbook</li>
+            <li>6 months of monthly trend reports (email delivery)</li>
+            <li>Private community access + direct Q&amp;A</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">$297 <span>one-time</span></div>
+            <a class="gumroad-button" href="https://trendpulsemedia.gumroad.com/l/trendpulse-pro-bundle" data-gumroad-overlay-checkout="true">Get the Bundle — $297</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ───────────────────────────────── -->
+  <section id="testimonials">
+    <div class="section-inner">
+      <p class="section-label">What Customers Say</p>
+      <h2 class="section-title">Real results from real people.</h2>
+      <p class="section-sub">Don't take our word for it. Here's what our customers say after putting the TrendPulse system to work.</p>
+      <div class="testimonials-grid">
+
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"I work 10 hours a day at a desk. The 12-week micro-workout plan is the only thing that's ever actually fit into my schedule. My back pain is gone after 6 weeks."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">MR</div>
+            <div>
+              <div class="testi-name">Marcus R.</div>
+              <div class="testi-role">Software Engineer, Austin TX</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The Viral Content Creator Starter Kit saved me weeks of research. The hook templates alone are worth 10x the price — I got my first 50K view video using one of them."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">JL</div>
+            <div>
+              <div class="testi-name">Jade L.</div>
+              <div class="testi-role">Fitness Content Creator, 28K Followers</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The Trend Intelligence Playbook changed how I look at content creation. I spotted a trending topic 5 days before it went mainstream and my video got 180K views. Absolutely worth it."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">DP</div>
+            <div>
+              <div class="testi-name">Devon P.</div>
+              <div class="testi-role">TikTok Creator, Health Niche</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"I bought the Complete Transformation Guide skeptical about the 'small habits' thing. Three weeks in and I'm actually cooking my meals, moving daily, and sleeping better. I didn't expect it to work this fast."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AS</div>
+            <div>
+              <div class="testi-name">Alicia S.</div>
+              <div class="testi-role">Marketing Manager, Chicago</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Got the Pro Bundle and it is genuinely the best $297 I've spent on any digital product. The monthly trend reports alone keep me ahead of every other creator in my niche."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">TK</div>
+            <div>
+              <div class="testi-name">Tyler K.</div>
+              <div class="testi-role">YouTube Creator, 62K Subscribers</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The 30-day habit tracker is beautifully designed and incredibly practical. I've tried every habit app and nothing worked as well as something I could physically hold and fill out. Simple is powerful."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">NW</div>
+            <div>
+              <div class="testi-name">Nadia W.</div>
+              <div class="testi-role">Teacher &amp; Wellness Enthusiast</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ────────────────────────────────────────── -->
+  <section id="faq">
+    <div class="section-inner">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">Common questions, straight answers.</h2>
+      <p class="section-sub">No fine print. No upsell traps. Just the information you need to decide.</p>
+      <div class="faq-list">
+
+        <details>
+          <summary>How are products delivered after purchase?</summary>
+          <div class="faq-answer">
+            All products are delivered instantly via Gumroad — the leading digital product delivery platform. After checkout you'll receive an email with a download link. No account creation required. You can re-download your purchase any time from your Gumroad receipt email.
+          </div>
+        </details>
+
+        <details>
+          <summary>Do I need any special equipment for the workout plans?</summary>
+          <div class="faq-answer">
+            None at all. Every workout in the 12-Week Micro-Workout Plan and the Complete Transformation Guide requires zero equipment. The programs were specifically designed for desk workers who want to move more without buying a gym membership or any gear. Your bodyweight and a little floor space is all you need.
+          </div>
+        </details>
+
+        <details>
+          <summary>Is the Trend Intelligence Playbook relevant if I'm not a fitness creator?</summary>
+          <div class="faq-answer">
+            The methodology transfers across niches. The core framework — how to scan multi-platform signals, score virality potential, and time your content to hit before trends peak — applies to any content vertical. That said, the examples and case studies in the playbook are primarily drawn from fitness and wellness content. Creators in adjacent niches (lifestyle, health, self-improvement) will find it most directly applicable.
+          </div>
+        </details>
+
+        <details>
+          <summary>What's included in the monthly trend reports inside the Pro Bundle?</summary>
+          <div class="faq-answer">
+            Each monthly report covers the top emerging trends we tracked that month across TikTok, YouTube, Instagram, and Reddit — ranked by virality score and monetization window. You'll see which topics are rising, which peaked early, timing data, and recommended content angles. Reports are delivered via email for 6 consecutive months after your purchase date.
+          </div>
+        </details>
+
+        <details>
+          <summary>Is there a refund policy?</summary>
+          <div class="faq-answer">
+            Yes. If you purchase any product and feel it did not deliver value, contact us within 30 days at contact@asiinnovativesolutions.com with your Gumroad order number and we will process a full refund — no questions, no hoops. We stand behind everything we sell.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ──────────────────────────────────── -->
+  <section class="cta-section">
+    <div class="cta-box">
+      <h2>Start with one habit.<br><span style="color:var(--gold)">Build everything from there.</span></h2>
+      <p>Pick a product, download it in seconds, and start today. No waiting. No shipping. No subscriptions unless you want one. Your transformation starts the moment you decide to begin.</p>
+      <a href="#products" class="btn-primary" style="font-size:1.05rem; padding: 1rem 2.5rem;">Browse All Products</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Trend<span>Pulse</span> Media</div>
+          <p>Micro-habits, viral content, and trend intelligence for busy professionals and ambitious creators.</p>
+          <p style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">A brand of <strong style="color: var(--text);">ASI Innovative Solutions LLC</strong></p>
+        </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="https://trendpulsemedia.gumroad.com/l/microhabit-tracker" target="_blank" rel="noopener">Micro-Habit Tracker — $9</a></li>
+            <li><a href="https://trendpulsemedia.gumroad.com/l/microworkout-plan" target="_blank" rel="noopener">12-Week Workout Plan — $17</a></li>
+            <li><a href="https://trendpulsemedia.gumroad.com/l/transformation-guide" target="_blank" rel="noopener">Transformation Guide — $27</a></li>
+            <li><a href="https://trendpulsemedia.gumroad.com/l/content-creator-starter-kit" target="_blank" rel="noopener">Creator Starter Kit — $47</a></li>
+            <li><a href="https://trendpulsemedia.gumroad.com/l/trend-intelligence-playbook" target="_blank" rel="noopener">Trend Intelligence Playbook — $97</a></li>
+            <li><a href="https://trendpulsemedia.gumroad.com/l/trendpulse-pro-bundle" target="_blank" rel="noopener">Pro Bundle — $297</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="https://www.tiktok.com/@trendpulsemedia" target="_blank" rel="noopener">TikTok @TrendPulseMedia</a></li>
+            <li><a href="https://www.instagram.com/trendpulsemedia" target="_blank" rel="noopener">Instagram @TrendPulseMedia</a></li>
+            <li><a href="https://www.youtube.com/@TrendPulseMedia" target="_blank" rel="noopener">YouTube @TrendPulseMedia</a></li>
+            <li><a href="https://twitter.com/TrendPulseMedia" target="_blank" rel="noopener">X / Twitter @TrendPulseMedia</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@asiinnovativesolutions.com">contact@asiinnovativesolutions.com</a></li>
+            <li><a href="mailto:support@trendpulsemedia.com">support@trendpulsemedia.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ASI Innovative Solutions LLC. All rights reserved.</p>
+        <p><a href="mailto:contact@asiinnovativesolutions.com">contact@asiinnovativesolutions.com</a></p>
+      </div>
+      <p class="footer-disclaimer">
+        Content on this site is for informational and educational purposes only. Nothing here constitutes medical, nutritional, or professional health advice. Always consult a qualified health professional before starting any new exercise or nutrition program. Individual results will vary.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
